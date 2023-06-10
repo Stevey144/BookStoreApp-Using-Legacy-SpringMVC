@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="https://java.sun.com/xml/ns/javaee" xsi:schemaLocation="https://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>BookStore</display-name>
+
+	<!-- Add Spring MVC DispatcherServlet as front controller -->
+	<servlet>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>
+          com.BookStoreApplication.net.ControllerServlet
+        </servlet-class>
+        
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/ControllerServlet</url-pattern> 
+    </servlet-mapping>
+    
+ </web-app>

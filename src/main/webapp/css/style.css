@@ -1,0 +1,84 @@
+@charset "ISO-8859-1";
+.container{
+	width:400px;
+	margin:auto;
+	height:600px;
+	
+}
+.table-container{
+	width:600px;
+	margin:auto;
+	height:100%;
+	
+}
+#links{
+	width:300px;
+	margin:auto;
+}
+#links-for-book-list-page{
+	width:280px;
+	margin:auto;
+	padding-left: 50px;
+}
+
+h1 a{
+	text-decoration:none;
+	font-family:courier;
+	padding:20px;
+	color:green;
+}
+.bookhead{
+	text-align:center;
+	padding-right:40px
+}
+.addNewBook{
+	font-size:25px;
+}
+
+.form-div{
+	width:100%;
+	margin:auto;
+	
+}
+.form-div, input{
+	width:300px;
+	height:30px;
+	display:inline-block;
+	
+}
+label{
+	font-family:tahoma;
+}
+a:hover{
+	color:maroon;
+}
+
+th{
+	text-align:left;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+}
+th {
+	background-color:green;
+	color: white;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 2%;
+}
+td{
+	height:30px;
+}
+td:hover{
+	background-color:darkcyan;
+	color:white;
+}
+.addNewBook{
+	font-size:26px !important;
+}
+
