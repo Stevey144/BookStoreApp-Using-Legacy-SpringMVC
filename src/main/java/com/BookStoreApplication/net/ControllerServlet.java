@@ -18,16 +18,20 @@ import java.util.ArrayList;
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private ArrayList<Book>  bookList = new ArrayList<Book>();
+	
+	private BookDao bookDAO;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public ControllerServlet() {
         super();
-        bookList.add(new Book("Lord of the ring","flipee", 5.50f));
-        bookList.add(new Book("johnie cage","richard howard", 2.50f));
-        bookList.add(new Book("friya","mean", 1.30f));
+        bookDAO = new  BookDao();
+        bookDAO.connect();
+        bookDAO.disconnect();
+        
+      
         
      
         
@@ -52,7 +56,9 @@ public class ControllerServlet extends HttpServlet {
 	 }
 
 	private void listBooks(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("book_list", bookList);
+		ArrayList<Book> books = bookDAO.listAllBooks();
+		
+		request.setAttribute("book_list", books);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/BookList.jsp");
 		dispatcher.forward(request, response);
 		
@@ -73,7 +79,6 @@ public class ControllerServlet extends HttpServlet {
 		if(action.equals("/insert")) {
 			insertBook(request,response);
 		}
-		
 	
 	}
 
@@ -83,8 +88,8 @@ public class ControllerServlet extends HttpServlet {
 		String author = request.getParameter("bookauthor");	
 		String price = request.getParameter("bookprice");
 		
-		Book newBook = new Book(title, author,Float.parseFloat(price));
-		bookList.add(newBook);
+		Book newBook = new Book(title, author, Float.parseFloat(price));
+		bookDAO.insertBook(newBook);
 		
 		response.sendRedirect("list");
 	}
